@@ -1,5 +1,5 @@
-import taskModel from "../models/taskModel";
-import userModel from "../models/userModels";
+import taskModel from "../models/taskModel.js";
+import userModel from "../models/userModels.js";
 import {createTransport} from "nodemailer";
 import dotenv from "dotenv"
 

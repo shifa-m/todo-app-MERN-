@@ -1,4 +1,4 @@
-import userModel from "../models/userModels";
+import userModel from "../models/userModels.js";
 import dotenv from "dotenv";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";

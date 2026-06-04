@@ -1,5 +1,5 @@
-import app from "./src/app";
-import connectDB from "./src/db/db";
+import app from "./src/app.js";
+import connectDB from "./src/db/db.js";
 
 
 
