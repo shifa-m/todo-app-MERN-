@@ -12,7 +12,7 @@ function Header  () {
 
             const logout=()=>{
                         localStorage.removeItem("authToken");
-                        window.location.href="/login";
+                        window.location.href="/login";//ek URL se dusre URL par redirect karne ke liye use hoti hai.
             }
 
 }
