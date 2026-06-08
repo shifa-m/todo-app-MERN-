@@ -13,8 +13,8 @@ import userReducer from './reducer/userReducer';
 import Header from './components/Header/Header';
 import Login from './components/Login';
 import Register from './components/Register';
-import ForgotPassword from './components/forgotPassword/ForgotPassword';
-import ResetPassword from './components/forgotPassword/ResetPassword';
+import ForgotPassword from './components/forgotPassword/forgotPassword.jsx';
+import ResetPassword from './components/forgotPassword/resetPassword.jsx';
 import axios from './Axios/axios.js';
 
 
@@ -64,7 +64,7 @@ function App(){
                                     fetchTasks()
                         }
             },[userToken])
-}
+
 
 return(
             <BrowserRouter>
@@ -89,3 +89,4 @@ return(
             
             </BrowserRouter>
 )
+}

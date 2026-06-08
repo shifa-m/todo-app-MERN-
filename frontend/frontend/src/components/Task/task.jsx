@@ -3,7 +3,7 @@ import moment from 'moment';
 import "./task.css";
 import { useContext } from 'react';
 import TaskContext from '../../context/TaskContext';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Trash } from 'lucide-react';
 function Task({ task, id }) {
     const { dispatch } = useContext(TaskContext);
 
@@ -42,7 +42,7 @@ function Task({ task, id }) {
                 </div>
             </div>
             <div className="remove-task text-sm text-white">
-                <DeleteIcon
+                <Trash
                     style={{ fontSize: 30, cursor: "pointer" }}
                     size="large"
                     onClick={handleRemove}

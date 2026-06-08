@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskIndicator from './TaskIndicator';
-import CreateTask from './createTask/CreateTask';
+import CreateTask from './createTask/createTask'
 import { Outlet } from 'react-router-dom';
 function Layout() {
     return (
