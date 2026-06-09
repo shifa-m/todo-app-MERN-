@@ -10,19 +10,19 @@ const createToken=(id)=>{
 }
 
 const loginUser =async(req,res)=>{
-            const {emai,password}=req.body;
+            const {email,password}=req.body;
 
             try{
                         if(!email || !password){
                                return res.status(400).json({
-                                    message:"Please enter all Fields";
+                                    message:"Please enter all Fields"
                                })
                         }
 
                         const user=await userModel.findOne({email})
 
                         if(!user){
-                                    return res.status(501).json({
+                                    return res.status(404).json({
                                                 message:"User does not exists"
                                     })
                         }
@@ -30,7 +30,7 @@ const loginUser =async(req,res)=>{
 
                         const isMatch=await bcrypt.compare(password,user.password)
                         if(!isMatch){
-                                    return res.status.json({
+                                    return res.status(401).json({
                                                 message:"Invalid credentials"
                                     })
                         }

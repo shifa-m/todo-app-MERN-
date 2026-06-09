@@ -9,20 +9,20 @@ import TaskContext from './context/TaskContext';
 import TokenContext from './context/TokenContext';
 import taskReducer from './reducer/taskReducer';
 import tokenReducer from './reducer/tokenReducer';
-import userReducer from './reducer/userReducer';
 import Header from './components/Header/Header';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/forgotPassword/forgotPassword.jsx';
 import ResetPassword from './components/forgotPassword/resetPassword.jsx';
 import axios from './Axios/axios.js';
+import userReducer from './reducer/userReducer.js'
 
 
 function App(){
             const token=JSON.parse(localStorage.getItem("authToken"));
             const [tasks,dispatch]=useReducer(taskReducer,[])
-            const [userToken,tokenDispatch]=userReducer(tokenReducer,token);
-            const [user,userDispatch]=useReducer(useReducer,{})
+            const [userToken,tokenDispatch]=useReducer(tokenReducer,token);
+            const [user,userDispatch]=useReducer(userReducer,{})
 
             useEffect(()=>{
                         console.log("App.js");
@@ -69,7 +69,7 @@ function App(){
 return(
             <BrowserRouter>
             <TokenContext.Provider value={{userToken,tokenDispatch,user,userDispatch}}>
-                        <TaskContext.Provider value={{task,dispatch}}>
+                        <TaskContext.Provider value={{tasks,dispatch}}>
                         <Routes>
                                     <Route path='/' element={<Header/>}>
                                      <Route path='/' element={token ? <Layout /> : <Login />}>
@@ -90,3 +90,5 @@ return(
             </BrowserRouter>
 )
 }
+
+export default App

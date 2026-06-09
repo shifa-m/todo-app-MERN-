@@ -10,14 +10,15 @@ const sentMail=async(email,subject,title,description)=>{
             var transporter=createTransport({
                         service:'gmail',
                         auth:{
-                                    user:process.env.USERNAME,
-                                    pass:process.env.PASSWORD
+                                    user:process.env.GMAIL_USER,
+
+                                    pass:process.env.GMAIL_PASSWORD
                         }
 
             })
   
             var mailOptions={
-                        from:"smehreen9964@gmail.com",
+                        from:process.env.GMAIL_USER,
                         to:email,
                         subject:subject,
                         html:`<h1>Task added successfully</h1><h2>Title:${title}</h2><h3>Description:${description}</h3>`
@@ -61,7 +62,7 @@ const sentMail=async(email,subject,title,description)=>{
                         taskModel.findByIdAndDelete(id)
                         .then(()=>
                                     res.status(200).json({
-                                                message:"Task deleted successfully";
+                                                message:"Task deleted successfully"
                                     })
 
                         )

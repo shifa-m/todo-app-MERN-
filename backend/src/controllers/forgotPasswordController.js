@@ -6,24 +6,24 @@ import {createTransport} from "nodemailer"
 
 dotenv.config()
 
-const forgetPassword=async(req,res)=>{
+const forgotPassword=async(req,res)=>{
 
             try{
                  const {email}=req.body;
                  
-                 const user=await userModel.findOne({email});
+                 const user=await userModel.findOne({email})
                  if(!user){
                         res.status(404).json({
                                    message: "User not found"
                         })
                  }
 
-                 const resetToken=crypto.randomBytes(20).toString("hex");
+                 const resetToken=crypto.randomBytes(20).toString("hex")
                  user.resetToken=resetToken;
                  await user.save();
                
 
-                 const resetURL=`http://localhost:5173/resetPassword?token=${resetToken}`;
+                 const resetURL=`http://localhost:5173/resetPassword?token=${resetToken}`
                  var transporter=createTransport({
                         service:"gmail",
                         host:"smtp.gmail.com",
@@ -40,7 +40,7 @@ const forgetPassword=async(req,res)=>{
                         from:"smehreen9964@gmail.com",
                         to:email,
                         subject:"Reset Password",
-                        html:`<h1>Reset Password</h1><h2>Click on the link to reset your Password</h2><h3>${resetUrl}</h3>`;
+                        html:`<h1>Reset Password</h1><h2>Click on the link to reset your Password</h2><h3>${resetUrl}</h3>`
                  }
 
    await transporter.sendMail(mailOptions,function(error,info){
@@ -95,7 +95,7 @@ const forgetPassword=async(req,res)=>{
               message:"Password reset successfully"
        })
  }
-export  {forgetPassword , resetPassword}
+export  {forgotPassword , resetPassword}
        
 
 

@@ -4,9 +4,9 @@ import cors from "cors"
 import dotenv from "dotenv"
 
 
-import userRouter from "./routes/userRoute";
-import taskRouter from "./routes/taskRoute";
-import forgotPassword from "./routes/forgotPassword";
+import userRouter from "./routes/userRoute.js"
+import taskRouter from "./routes/taskRoute.js"
+import forgotPassword from "./routes/forgotPassword.js"
 
 dotenv.config()
 const app = express()

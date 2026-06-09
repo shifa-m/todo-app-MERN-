@@ -1,13 +1,17 @@
-function userReducer(user,action){
-            console.log("userReducer");
-            switch(action.type){
-                        case "SET_USER":{
-                                    return action.payload;
-                        }
-                        case "UNSET_USER":{
-                                    return {};
-                        }
-                        default :return user;
-            }
+function userReducer(user, action) {
+
+    if (!action) return user;
+
+    switch(action.type) {
+        case "SET_USER":
+            return action.payload;
+
+        case "UNSET_USER":
+            return {};
+
+        default:
+            return user;
+    }
 }
-export default userReducer;
+
+export default userReducer
